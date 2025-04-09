@@ -27,19 +27,22 @@ class FakererCommand extends Command
     {
         $type = $this->argument('type');
 
-        if (!$type) {
+        if (! $type) {
             $this->showHelp();
+
             return self::SUCCESS;
         }
 
         if ($type === 'household') {
             $category = $this->option('category');
             $item = $this->fakerer->householdItem($category);
-            $this->info("Random household item" . ($category ? " ($category)" : "") . ": $item");
+            $this->info('Random household item'.($category ? " ($category)" : '').": $item");
+
             return self::SUCCESS;
         }
 
         $this->error("Unknown type: $type");
+
         return self::FAILURE;
     }
 

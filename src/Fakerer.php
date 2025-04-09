@@ -9,8 +9,9 @@ class Fakerer
     /**
      * Get a random household item from a specified category.
      *
-     * @param string|null $category The category of the household item.
+     * @param  string|null  $category  The category of the household item.
      * @return string A random household item.
+     *
      * @throws \InvalidArgumentException If the category is invalid.
      */
     public function householdItem(?string $category = null): string
@@ -60,10 +61,11 @@ class Fakerer
 
         if ($category === null) {
             $allItems = array_merge(...array_values($items));
+
             return $allItems[array_rand($allItems)];
         }
 
-        if (!array_key_exists($category, $items)) {
+        if (! array_key_exists($category, $items)) {
             throw new \InvalidArgumentException("Invalid category: $category");
         }
 

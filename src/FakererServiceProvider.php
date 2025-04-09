@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Jphat\Fakerer;
 
+use Jphat\Fakerer\Commands\FakererCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Jphat\Fakerer\Commands\FakererCommand;
 
 class FakererServiceProvider extends PackageServiceProvider
 {
@@ -29,7 +29,7 @@ class FakererServiceProvider extends PackageServiceProvider
     {
         // Register the Fakerer class as a singleton
         $this->app->singleton(Fakerer::class, function ($app) {
-            return new Fakerer();
+            return new Fakerer;
         });
     }
 
@@ -41,6 +41,6 @@ class FakererServiceProvider extends PackageServiceProvider
 
     protected function loadHelpers(): void
     {
-        require_once __DIR__ . '/Helpers.php';
+        require_once __DIR__.'/Helpers.php';
     }
 }

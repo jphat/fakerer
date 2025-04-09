@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Jphat\Fakerer\Facades\Fakerer;
 
-if (!function_exists('fakerer')) {
+if (! function_exists('fakerer')) {
     /**
      * Get an instance of the Fakerer class.
      *
